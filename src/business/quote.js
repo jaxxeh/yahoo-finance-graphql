@@ -5,6 +5,11 @@ import got from './utils/got.js'
 import { NAMESPACE } from './utils/const.js'
 import { getCrumb } from './utils/crumb.js'
 
+// Lookup table for working interval/range pairs
+// based on the input interval parameter for historical
+// price data.
+// (e.g. a request for 1-minute price intervals will
+// return 7 days worth of price data)
 const irTable = {
   ONE_MINUTE: {
     interval: '1m',
@@ -44,6 +49,9 @@ const irTable = {
   },
 }
 
+// Dedicated class to provide:
+// - methods that implement 'quote'-type queries
+// - data formatting to conform to expected 'quote'-type query results
 class Quote {
   constructor(data) {
     Object.assign(this, data)
