@@ -1,0 +1,44 @@
+type Query {
+  version: String!
+  echo(value: String!): String!
+  lookup(query: String!, type: QuoteType!): Lookup!
+  quotes(symbols: [String!]!): [QuoteFull!]!
+  profile(symbol: String!): QuoteProfile!
+  recommend(symbol: String!): [Symbol!]!
+  marketStatus: MarketStatus
+  quoteData(symbol: String!, interval: Interval!): QuoteData
+}
+
+type Lookup {
+  id: ID!
+  totals: Totals!
+  quotes: [QuoteLookup!]!
+}
+
+type Totals {
+  all: Int!
+  equity: Int!
+  future: Int!
+  index: Int!
+  etf: Int!
+  mutualfund: Int!
+  currency: Int!
+  cryptocurrency: Int!
+}
+
+type MarketStatus {
+  id: ID!
+  name: String
+  status: String
+  message: String
+  time: String
+  open: String
+  close: String
+  duration: Duration
+}
+
+type Duration {
+  days: String
+  hrs: String
+  mins: String
+}

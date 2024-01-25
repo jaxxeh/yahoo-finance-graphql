@@ -1,0 +1,111 @@
+type Symbol {
+  id: ID!
+  symbol: String!
+}
+
+type QuoteLookup {
+  id: ID!
+  symbol: String!
+  shortName: String
+  quoteType: QuoteType!
+  exchange: String
+}
+
+type QuoteFull {
+  id: ID!
+  symbol: String!
+  shortName: String
+  quoteType: QuoteType!
+  exchange: String
+  currency: String
+  quoteSourceName: String
+  regularMarketChange: Float
+  regularMarketChangePercent: Float
+  regularMarketPrice: Float
+  regularMarketDayHigh: Float
+  regularMarketDayLow: Float
+  regularMarketPreviousClose: Float
+  regularMarketOpen: Float
+  fiftyTwoWeekLow: Float
+  fiftyTwoWeekHigh: Float
+  priceHint: Int
+  regularMarketTime: Int
+  marketState: String
+}
+
+type QuoteTicker {
+  id: ID!
+  symbol: String!
+  shortName: String
+  quoteType: QuoteType!
+  exchange: String
+  price: Float
+  priceHint: Int
+  time: String
+  marketHours: MarketHours
+  dayVolume: Int
+  change: Float
+  changePercent: Float
+}
+
+type QuoteProfile {
+  id: ID!
+  symbol: String!
+  shortName: String
+  quoteType: QuoteType!
+  exchange: String
+  longName: String
+  exchangeName: String
+  currency: String
+  currencySymbol: String
+}
+
+type QuoteData {
+  id: ID!
+  symbol: String!
+  quoteType: QuoteType!
+  exchange: String
+  priceHint: String
+  dataGranularity: String
+  data: [MarketData!]!
+}
+
+type MarketData {
+  timestamp: Int
+  open: Float
+  close: Float
+  low: Float
+  high: Float
+  volume: Int
+  adjClose: Float
+}
+
+enum MarketHours {
+  PRE_MARKET
+  REGULAR_MARKET
+  POST_MARKET
+  EXTENDED_HOURS_MARKET
+}
+
+enum QuoteType {
+  ALL
+  EQUITY
+  FUTURE
+  INDEX
+  MUTUALFUND
+  ETF
+  CURRENCY
+  CRYPTOCURRENCY
+}
+
+enum Interval {
+  ONE_MINUTE # 7d range
+  FIVE_MINUTES # 60d range
+  FIFTEEN_MINUTES # 60d range
+  THIRTY_MINUTES # 60d range
+  ONE_HOUR # 730d range
+  ONE_DAY # 200y range (= max)
+  ONE_WEEK # 200y range (= max)
+  ONE_MONTH # 200y range (= max)
+  THREE_MONTHS # max range
+}

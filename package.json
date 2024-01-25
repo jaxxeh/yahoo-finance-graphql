@@ -1,0 +1,39 @@
+{
+  "name": "yahoo-finance-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "apollo": "nodemon src/index.js --exec babel-node --ext js,graphql",
+    "ws": "nodemon src/index_ws.js --exec babel-node --ext js,graphql"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-tools/schema": "^8.3.1",
+    "apollo-server-express": "^3.5.0",
+    "express": "^4.17.1",
+    "glob": "^7.2.0",
+    "got": "^14.0.0",
+    "graphql": "^15.7.2",
+    "graphql-subscriptions": "^2.0.0",
+    "graphql-ws": "^5.5.5",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.15",
+    "puppeteer": "^21.9.0",
+    "subscriptions-transport-ws": "^0.11.0",
+    "tough-cookie": "^4.1.3",
+    "uuid": "^8.3.2",
+    "ws": "^8.2.3",
+    "yahoo-finance-ticker": "github:jaxxeh/yahoo-finance-ticker"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4"
+  }
+}
